@@ -16,6 +16,7 @@ import com.example.core.Status
 import com.example.presentation.adapter.CockTailAdapter
 import com.example.presentation.databinding.FragmentCockTailsBinding
 import com.example.presentation.viemodel.CockTailViewModel
+import com.facebook.shimmer.ShimmerFrameLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -26,6 +27,7 @@ class CockTailsFragment : Fragment() {
     private val cockTailAdapter = CockTailAdapter()
     private lateinit var recyclerView: RecyclerView
     private lateinit var progressBar: ProgressBar
+    private lateinit var shimmerView : ShimmerFrameLayout
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,13 +40,16 @@ class CockTailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        subscribeToObservers()
 
+
+       subscribeToObservers()
+
+        shimmerView = binding.shimmerView
         progressBar = binding.progressBar
         recyclerView = binding.cockTailsRecyclerview
         recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
         recyclerView.adapter = cockTailAdapter
-        recyclerView.adapter = cockTailAdapter
+
 
         viewModel.getCockTails(cocktail = "Cocktail")
 
@@ -54,16 +59,19 @@ class CockTailsFragment : Fragment() {
         viewModel.cockTailStatus.observe(viewLifecycleOwner) {
             when (it.status) {
                 Status.SUCCESS -> {
-                    progressBar.isVisible = false
+                    shimmerView.stopShimmer()
+                    shimmerView.visibility = View.GONE
                     it.let {
                         cockTailAdapter.differ.submitList(it.data)
                     }
                 }
                 Status.LOADING -> {
-                    progressBar.isVisible = true
+                    shimmerView.startShimmer()
+                    shimmerView.visibility = View.VISIBLE
                 }
                 Status.ERROR -> {
-                    progressBar.isVisible = false
+                    shimmerView.stopShimmer()
+                    shimmerView.visibility = View.GONE
                     Toast.makeText(context, "${it.message}", Toast.LENGTH_LONG).show()
                 }
             }
