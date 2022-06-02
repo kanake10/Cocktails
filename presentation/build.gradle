@@ -66,8 +66,8 @@ dependencies {
     implementation "androidx.activity:activity-ktx:1.4.0"
     implementation "androidx.fragment:fragment-ktx:1.4.0"
 
-    //circle image
-    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //shimmer
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
     // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
