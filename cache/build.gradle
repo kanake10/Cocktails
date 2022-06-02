@@ -32,24 +32,25 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.6.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation deps.androidx_core
+    implementation deps.ui.material
+    implementation deps.ui.appcompat
+
+    testImplementation deps.testing.junit
+    androidTestImplementation deps.testing.androidx_junit
+    androidTestImplementation deps.testing.espresso_core
 
     implementation project(path: ':domain')
     implementation project(path: ':core')
 
-    //Koin
-    implementation "io.insert-koin:koin-android:3.1.3"
+    //koin
+    implementation deps.koin
 
     //room
-    implementation "androidx.room:room-runtime:2.4.2"
-    kapt "androidx.room:room-compiler:2.4.2"
-    implementation "androidx.room:room-ktx:2.4.2"
+    implementation deps.room.runtime
+    implementation deps.room.ktx
+    kapt deps.room.compiler
 
     //Gson
-    implementation "com.google.code.gson:gson:2.8.5"
+    implementation deps.gson
 }
