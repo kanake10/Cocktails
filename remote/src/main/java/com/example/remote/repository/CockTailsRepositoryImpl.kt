@@ -11,14 +11,14 @@ class CockTailsRepositoryImpl(private val api: CockTailsApi, private val dao: Co
     CockTailsRepository {
 
     override suspend fun getCockTails(cocktail: String): List<Drink> {
-        val characters = dao.getCockTails()
+        val cocktails = dao.getCockTails()
 
-        if (characters.size > 1) {
-            return characters.map { it.toDomain() }
+        if (cocktails.size > 1) {
+            return cocktails.map { it.toDomain() }
         } else {
-            val characters = api.getCockTails(cocktail)
-            dao.saveCockTails(characters.drinks.map { it.toDomain().toEntity() })
-            return characters.drinks.map { it.toDomain() }
+            val cocktails = api.getCockTails(cocktail)
+            dao.saveCockTails(cocktails.drinks.map { it.toDomain().toEntity() })
+            return cocktails.drinks.map { it.toDomain() }
         }
     }
 
