@@ -2,6 +2,8 @@ package com.example.presentation.fragments
 
 import android.R
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,8 +43,10 @@ class CockTailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        Handler(Looper.getMainLooper()).postDelayed({
+            subscribeToObservers()
+        },3000)
 
-       subscribeToObservers()
 
         shimmerView = binding.shimmerView
         progressBar = binding.progressBar
