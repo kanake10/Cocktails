@@ -7,6 +7,10 @@ import com.example.remote.api.CockTailsApi
 import com.example.remote.mappers.toDomain
 import com.example.remote.mappers.toEntity
 
+/**
+ * @param api
+ * @param dao
+ */
 class CockTailsRepositoryImpl(private val api: CockTailsApi, private val dao: CockTailDao) :
     CockTailsRepository {
 
@@ -21,6 +25,4 @@ class CockTailsRepositoryImpl(private val api: CockTailsApi, private val dao: Co
             return cocktails.drinks.map { it.toDomain() }
         }
     }
-
-
 }

@@ -1,6 +1,5 @@
 package com.example.presentation.fragments
 
-import android.R
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -9,22 +8,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.core.Constants.DEFAULT_CALL
 import com.example.core.Status
 import com.example.presentation.adapter.CockTailAdapter
 import com.example.presentation.databinding.FragmentCockTailsBinding
 import com.example.presentation.viemodel.CockTailViewModel
 import com.facebook.shimmer.ShimmerFrameLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
 
 class CockTailsFragment : Fragment() {
     private var _binding: FragmentCockTailsBinding? = null
@@ -33,7 +30,7 @@ class CockTailsFragment : Fragment() {
     private val cockTailAdapter = CockTailAdapter()
     private lateinit var recyclerView: RecyclerView
     private lateinit var progressBar: ProgressBar
-    private lateinit var shimmerView : ShimmerFrameLayout
+    private lateinit var shimmerView: ShimmerFrameLayout
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,7 +48,7 @@ class CockTailsFragment : Fragment() {
         val layout = binding.collapsingToolbarLayout
 
         // toolbar title not responsive ignore for now
-       //  toolbar.setTitle("my title")
+        //  toolbar.setTitle("my title")
 
         layout.setupWithNavController(toolbar, navController, appBarConfiguration)
         super.onViewCreated(view, savedInstanceState)
@@ -61,18 +58,18 @@ class CockTailsFragment : Fragment() {
          */
         Handler(Looper.getMainLooper()).postDelayed({
             subscribeToObservers()
-        },3000)
-
+        }, 3000)
 
         shimmerView = binding.shimmerView
         progressBar = binding.progressBar
         recyclerView = binding.cockTailsRecyclerview
-        recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         recyclerView.adapter = cockTailAdapter
 
-
-        viewModel.getCockTails( "Cocktail")
-
+        /**
+         * fetch cocktails
+         */
+        viewModel.getCockTails(DEFAULT_CALL)
     }
 
     private fun subscribeToObservers() {
