@@ -50,9 +50,15 @@ class CockTailsFragment : Fragment() {
         val toolbar = binding.toolBar
         val layout = binding.collapsingToolbarLayout
 
+        // toolbar title not responsive ignore for now
+       //  toolbar.setTitle("my title")
+
         layout.setupWithNavController(toolbar, navController, appBarConfiguration)
         super.onViewCreated(view, savedInstanceState)
 
+        /**
+         * delay the shimmer effect for 3 secs
+         */
         Handler(Looper.getMainLooper()).postDelayed({
             subscribeToObservers()
         },3000)
@@ -65,7 +71,7 @@ class CockTailsFragment : Fragment() {
         recyclerView.adapter = cockTailAdapter
 
 
-        viewModel.getCockTails(cocktail = "Cocktail")
+        viewModel.getCockTails( "Cocktail")
 
     }
 

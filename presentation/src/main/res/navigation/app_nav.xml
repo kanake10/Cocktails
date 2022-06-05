@@ -8,6 +8,5 @@
     <fragment
         android:id="@+id/cockTailsFragment"
         android:name="com.example.presentation.fragments.CockTailsFragment"
-        android:label="CockTails"
         tools:layout="@layout/fragment_cock_tails" />
 </navigation>

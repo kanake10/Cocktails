@@ -19,10 +19,6 @@ class CockTailViewModel(
     private val _cockTailStatus = MutableLiveData<Resource<List<Drink>>>()
     val cockTailStatus: LiveData<Resource<List<Drink>>> = _cockTailStatus
 
-    init {
-        getCockTails(cocktail = "Cocktail")
-    }
-
     fun getCockTails(cocktail: String) {
         viewModelScope.launch {
             getCockTailsUseCase.invoke(cocktail).onStart {
