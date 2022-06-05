@@ -16,11 +16,13 @@ buildscript {
         classpath deps.detekt
         classpath deps.ben_manes
         classpath deps.safeargs
+        classpath deps.spotless
+        classpath deps.dokka
 
 
     }
 }
-
+apply from: "spotless/spotless.gradle"
 apply from: "scripts/githooks.gradle"
 subprojects {
     apply from: "../scripts/ktlint.gradle"
@@ -29,9 +31,9 @@ subprojects {
 }
 
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
+//task clean(type: Delete) {
+//    delete rootProject.buildDir
+//}
 
 afterEvaluate {
     // We install the hook at the first occasion
