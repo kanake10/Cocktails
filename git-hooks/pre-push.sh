@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Running static analysis."
-
-./gradlew ktlintCheck
-./gradlew detekt
+#echo "Running static analysis."
+#
+#./gradlew ktlintCheck
+#./gradlew detekt
