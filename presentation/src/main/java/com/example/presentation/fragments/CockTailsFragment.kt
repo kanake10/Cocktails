@@ -51,10 +51,6 @@ class CockTailsFragment : Fragment() {
         layout.setupWithNavController(toolbar, navController, appBarConfiguration)
         super.onViewCreated(view, savedInstanceState)
 
-        /**
-         * delay the shimmer effect for 3 secs
-         */
-
         subscribeToObservers()
 
         shimmerView = binding.shimmerView
@@ -69,6 +65,9 @@ class CockTailsFragment : Fragment() {
         viewModel.getCockTails(DEFAULT_CALL)
     }
 
+    /**
+     * delay the shimmer effect for 3 secs
+     */
     companion object {
         const val delay = 3000
     }
