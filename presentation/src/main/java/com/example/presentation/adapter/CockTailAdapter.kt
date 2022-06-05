@@ -38,9 +38,12 @@ class CockTailAdapter : RecyclerView.Adapter<CockTailAdapter.ImageViewHolder>() 
             cockTailName.text = image.strDrink
             Glide.with(context)
                 .load(image.strDrinkThumb)
-                .transform(CenterInside(), RoundedCorners(24))
+                .transform(CenterInside(), RoundedCorners(round))
                 .into(cockTailImage)
         }
+    companion object {
+        const val round = 24
+    }
 
     override fun getItemCount(): Int = differ.currentList.size
 }

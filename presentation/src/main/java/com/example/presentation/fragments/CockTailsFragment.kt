@@ -1,8 +1,6 @@
 package com.example.presentation.fragments
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,9 +54,8 @@ class CockTailsFragment : Fragment() {
         /**
          * delay the shimmer effect for 3 secs
          */
-        Handler(Looper.getMainLooper()).postDelayed({
-            subscribeToObservers()
-        }, 3000)
+
+        subscribeToObservers()
 
         shimmerView = binding.shimmerView
         progressBar = binding.progressBar
@@ -70,6 +67,10 @@ class CockTailsFragment : Fragment() {
          * fetch cocktails
          */
         viewModel.getCockTails(DEFAULT_CALL)
+    }
+
+    companion object {
+        const val delay = 3000
     }
 
     private fun subscribeToObservers() {
