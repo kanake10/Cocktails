@@ -13,6 +13,4 @@ interface CockTailDao {
 
     @Query("SELECT * FROM cocktails")
     suspend fun getCockTails(): List<CockTailEntity>
-
-
 }

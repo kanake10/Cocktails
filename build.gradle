@@ -1,20 +1,39 @@
 buildscript {
+
     apply from: 'scripts/versions.gradle'
     repositories {
         google()
         mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
 
         classpath deps.build_tools
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10'
+        classpath deps.kotlin_plugin
+        classpath deps.ktlint
+        classpath deps.detekt
+        classpath deps.ben_manes
+        classpath deps.safeargs
 
 
-        def nav_version = "2.3.1"
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
     }
 }
 
+apply from: "scripts/githooks.gradle"
+subprojects {
+    apply from: "../scripts/ktlint.gradle"
+    apply from: "../scripts/detekt.gradle"
+    apply from: "../scripts/versionsplugin.gradle"
+}
+
+
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+afterEvaluate {
+    // We install the hook at the first occasion
+    tasks['clean'].dependsOn installGitHooks
 }
