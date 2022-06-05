@@ -11,7 +11,7 @@ fun CockTailResponseDto.toDomain(): Drinks {
     )
 }
 
-fun DrinkDto.toDomain(): Drink{
+fun DrinkDto.toDomain(): Drink {
     return Drink(
         idDrink, strDrink, strDrinkThumb
     )
