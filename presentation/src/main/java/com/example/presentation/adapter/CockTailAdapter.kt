@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CenterInside
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.domain.models.Drink
@@ -44,6 +43,4 @@ class CockTailAdapter : RecyclerView.Adapter<CockTailAdapter.ImageViewHolder>() 
         }
 
     override fun getItemCount(): Int = differ.currentList.size
-
-
 }
