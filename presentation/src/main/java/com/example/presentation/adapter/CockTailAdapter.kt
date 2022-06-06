@@ -2,7 +2,6 @@ package com.example.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +11,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.domain.models.Drink
 import com.example.presentation.databinding.ItemCocktailBinding
 
-class CockTailAdapter : ListAdapter<Drink,CockTailAdapter.ImageViewHolder>(DrinkDiffUtil) {
+class CockTailAdapter : ListAdapter<Drink, CockTailAdapter.ImageViewHolder>(DrinkDiffUtil) {
 
     class ImageViewHolder private constructor(private val binding: ItemCocktailBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -35,14 +34,12 @@ class CockTailAdapter : ListAdapter<Drink,CockTailAdapter.ImageViewHolder>(Drink
                 return ImageViewHolder(itemBinding)
             }
         }
-
     }
 
-    object DrinkDiffUtil : DiffUtil.ItemCallback<Drink>(){
+    object DrinkDiffUtil : DiffUtil.ItemCallback<Drink>() {
         override fun areItemsTheSame(oldItem: Drink, newItem: Drink): Boolean = oldItem.idDrink == newItem.idDrink
         override fun areContentsTheSame(oldItem: Drink, newItem: Drink): Boolean = oldItem == newItem
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder =
         ImageViewHolder.create(parent)
