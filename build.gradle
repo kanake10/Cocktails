@@ -11,7 +11,7 @@ buildscript {
     dependencies {
 
         classpath deps.build_tools
-        classpath deps.kotlin_plugin
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21"
         classpath deps.ktlint
         classpath deps.detekt
         classpath deps.ben_manes
