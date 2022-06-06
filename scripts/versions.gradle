@@ -95,6 +95,7 @@ def ui = [:]
 ui.material = "com.google.android.material:material:$versions.material"
 ui.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
 ui.appcompat = "androidx.appcompat:appcompat:$versions.androidx_appcompat"
+ui.splash_screen = "androidx.core:core-splashscreen:1.0.0-rc01"
 deps.ui = ui
 
 def square_up = [:]

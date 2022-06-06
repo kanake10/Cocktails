@@ -75,4 +75,7 @@ dependencies {
     //glide
     implementation deps.glide.glide
     kapt deps.glide.compiler
+
+    //Splash Screen Api
+    implementation deps.ui.splash_screen
 }

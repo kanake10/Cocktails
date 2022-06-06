@@ -4,6 +4,7 @@ package="com.example.presentation">
 
 <application>
     <activity
+        android:theme="@style/Theme.App.Starting"
         android:name="com.example.presentation.views.CockTailsActivity"
         android:exported="true">
         <nav-graph android:value="@navigation/app_nav"/>
