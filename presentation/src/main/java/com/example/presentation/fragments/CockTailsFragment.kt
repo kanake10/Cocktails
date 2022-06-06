@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.core.Constants.DEFAULT_CALL
 import com.example.core.Status
+import com.example.presentation.R
 import com.example.presentation.adapter.CockTailAdapter
 import com.example.presentation.databinding.FragmentCockTailsBinding
 import com.example.presentation.viemodel.CockTailViewModel
@@ -46,7 +47,7 @@ class CockTailsFragment : Fragment() {
         val layout = binding.collapsingToolbarLayout
 
         // toolbar title not responsive ignore for now
-        //  toolbar.setTitle("my title")
+        toolbar.title = "Cocktails"
 
         layout.setupWithNavController(toolbar, navController, appBarConfiguration)
         super.onViewCreated(view, savedInstanceState)
