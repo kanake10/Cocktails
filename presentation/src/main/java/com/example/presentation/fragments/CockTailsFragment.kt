@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
@@ -15,7 +14,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.core.Constants.DEFAULT_CALL
 import com.example.core.Status
-import com.example.presentation.R
 import com.example.presentation.adapter.CockTailAdapter
 import com.example.presentation.databinding.FragmentCockTailsBinding
 import com.example.presentation.viemodel.CockTailViewModel
@@ -80,7 +78,7 @@ class CockTailsFragment : Fragment() {
                     shimmerView.stopShimmer()
                     shimmerView.visibility = View.GONE
                     it.let {
-                        cockTailAdapter.differ.submitList(it.data)
+                        cockTailAdapter.submitList(it.data)
                     }
                 }
                 Status.LOADING -> {
