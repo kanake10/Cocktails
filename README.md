@@ -1,4 +1,4 @@
-# Cocktail_CleanArchitecture
+# Cocktails
  Mobile App to show various cocktails🍸  🍷 🍹 from the CockTailDB API.Written using Kotlin, Clean Architecture ,MVVM, Room ,DI and other jetpack libraries.
  
  Min Api:21
@@ -84,7 +84,7 @@ usecase which communiacates to Repository to get data.
 The final app looks like this:
 Collapsing ToolBar | CockTails | Shimmer
 --- | --- | ---
-<img src="https://github.com/kanake10/Cocktail_CleanArchitecture/blob/main/screenshots/app.png" width="280"/> | <img src="https://github.com/kanake10/Cocktail_CleanArchitecture/blob/main/screenshots/cocktails.png" width="280"/> | <img src="https://github.com/kanake10/Cocktail_CleanArchitecture/blob/main/screenshots/shimmer.png" width="280"/>
+<img src="https://github.com/kanake10/Cocktails/blob/main/screenshots/cocktails_list.png" width="280"/> | <img src="https://github.com/kanake10/Cocktails/blob/main/screenshots/toolbar.png" width="280"/> | <img src="https://github.com/kanake10/Cocktails/blob/main/screenshots/shimmer.png" width="280"/>
 
 ## SlackMessage
 Using fastlane to send a message to Slack once our app compiles successfully.
