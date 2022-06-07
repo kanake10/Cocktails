@@ -78,7 +78,8 @@
                     android:id="@+id/cocktailImageButton"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="#ffffff"
+                    android:background="@drawable/drink_category_rounded_corner"
+                    android:padding="5dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/cocktail" />
 
@@ -103,7 +104,8 @@
                     android:id="@+id/alcoholicImageButton"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="#ffffff"
+                    android:background="@drawable/drink_category_rounded_corner"
+                    android:padding="5dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/alcoholic" />
 
@@ -127,7 +129,8 @@
                     android:id="@+id/nonAlcoholicImageButton"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="#ffffff"
+                    android:background="@drawable/drink_category_rounded_corner"
+                    android:padding="5dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/nonalcoholic"
                     tools:layout_editor_absoluteX="143dp"
@@ -153,7 +156,8 @@
                     android:id="@+id/normalDrinkImageButton"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="#ffffff"
+                    android:background="@drawable/drink_category_rounded_corner"
+                    android:padding="5dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/drink"
                     tools:layout_editor_absoluteX="143dp"

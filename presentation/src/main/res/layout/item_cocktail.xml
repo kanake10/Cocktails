@@ -2,47 +2,42 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drinkCardView"
     android:layout_width="match_parent"
     android:layout_margin="10dp"
+    android:layout_height="300dp"
+    android:elevation="4dp"
+    android:padding="24dp"
     app:cardCornerRadius="15dp"
-    android:layout_height="300dp">
+    app:cardBackgroundColor="#D4CEF0"
+    app:contentPadding="24dp">
 
-    <androidx.cardview.widget.CardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="24dp"
-        app:contentPadding="24dp"
-        android:elevation="4dp"
-        app:cardBackgroundColor="#D4CEF0">
+        android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/cockTailImage"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cockTailName" />
 
-            <ImageView
-                android:id="@+id/cockTailImage"
-                android:layout_width="0dp"
-                android:layout_height="160dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cockTailName" />
+        <TextView
+            android:id="@+id/cockTailName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_bold"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="CockTails" />
 
-            <TextView
-                android:id="@+id/cockTailName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/opensans_bold"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="CockTails" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </androidx.cardview.widget.CardView>
 </androidx.cardview.widget.CardView>
