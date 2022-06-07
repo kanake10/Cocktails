@@ -10,4 +10,6 @@ interface CockTailsApi {
     suspend fun getCockTails(
         @Query("c") cockTail: String,
     ): CockTailResponseDto
+
+
 }

@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterInside
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.domain.models.Drink
+import com.example.presentation.R
 import com.example.presentation.databinding.ItemCocktailBinding
 
 class CockTailAdapter : ListAdapter<Drink, CockTailAdapter.ImageViewHolder>(DrinkDiffUtil) {
@@ -18,6 +19,15 @@ class CockTailAdapter : ListAdapter<Drink, CockTailAdapter.ImageViewHolder>(Drin
 
         fun bind(drink: Drink) {
             with(binding) {
+                if (adapterPosition % 2 == 1) {
+                    drinkCardView.setCardBackgroundColor(
+                        drinkCardView.context.resources.getColor(R.color.green_card
+                        ))
+                } else {
+                    drinkCardView.setCardBackgroundColor(
+                        drinkCardView.context.resources.getColor(R.color.purple_card
+                        ))
+                }
                 val context = binding.root.context
                 cockTailName.text = drink.strDrink
                 Glide.with(context)
