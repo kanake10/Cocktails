@@ -9,7 +9,6 @@
     android:elevation="4dp"
     android:padding="24dp"
     app:cardCornerRadius="15dp"
-    app:cardBackgroundColor="#D4CEF0"
     app:contentPadding="24dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/opensans_bold"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
