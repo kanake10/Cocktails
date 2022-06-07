@@ -1,6 +1,7 @@
 package com.example.presentation.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.core.Constants.DEFAULT_CALL
+import com.example.core.Constants.NON_ALCOHOLIC_CALL
+import com.example.core.Constants.ORDINARY_DRINK_CALL
 import com.example.core.Status
 import com.example.presentation.adapter.CockTailAdapter
 import com.example.presentation.databinding.FragmentCockTailsBinding
@@ -27,8 +30,6 @@ class CockTailsFragment : Fragment() {
     private val viewModel: CockTailViewModel by viewModel()
     private val cockTailAdapter = CockTailAdapter()
     private lateinit var recyclerView: RecyclerView
-    private lateinit var progressBar: ProgressBar
-    private lateinit var shimmerView: ShimmerFrameLayout
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,19 +43,11 @@ class CockTailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val navController = findNavController()
         val appBarConfiguration = AppBarConfiguration(navController.graph)
-//        val toolbar = binding.toolBar
-//        val layout = binding.collapsingToolbarLayout
 
-        // toolbar title not responsive ignore for now
-//        toolbar.title = "Cocktails"
-
-//        layout.setupWithNavController(toolbar, navController, appBarConfiguration)
         super.onViewCreated(view, savedInstanceState)
 
         subscribeToObservers()
 
-//        shimmerView = binding.shimmerView
-//        progressBar = binding.progressBar
         recyclerView = binding.cockTailsRecyclerview
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = cockTailAdapter
@@ -63,6 +56,7 @@ class CockTailsFragment : Fragment() {
          * fetch cocktails
          */
         viewModel.getCockTails(DEFAULT_CALL)
+
     }
 
     /**
@@ -76,19 +70,14 @@ class CockTailsFragment : Fragment() {
         viewModel.cockTailStatus.observe(viewLifecycleOwner) {
             when (it.status) {
                 Status.SUCCESS -> {
-//                    shimmerView.stopShimmer()
-//                    shimmerView.visibility = View.GONE
                     it.let {
                         cockTailAdapter.submitList(it.data)
                     }
                 }
                 Status.LOADING -> {
-//                    shimmerView.startShimmer()
-//                    shimmerView.visibility = View.VISIBLE
+
                 }
                 Status.ERROR -> {
-//                    shimmerView.stopShimmer()
-//                    shimmerView.visibility = View.GONE
                     Toast.makeText(context, "${it.message}", Toast.LENGTH_LONG).show()
                 }
             }
