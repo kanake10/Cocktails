@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.core.Constants.DEFAULT_CALL
 import com.example.core.Status
@@ -41,21 +42,21 @@ class CockTailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val navController = findNavController()
         val appBarConfiguration = AppBarConfiguration(navController.graph)
-        val toolbar = binding.toolBar
-        val layout = binding.collapsingToolbarLayout
+//        val toolbar = binding.toolBar
+//        val layout = binding.collapsingToolbarLayout
 
         // toolbar title not responsive ignore for now
-        toolbar.title = "Cocktails"
+//        toolbar.title = "Cocktails"
 
-        layout.setupWithNavController(toolbar, navController, appBarConfiguration)
+//        layout.setupWithNavController(toolbar, navController, appBarConfiguration)
         super.onViewCreated(view, savedInstanceState)
 
         subscribeToObservers()
 
-        shimmerView = binding.shimmerView
-        progressBar = binding.progressBar
+//        shimmerView = binding.shimmerView
+//        progressBar = binding.progressBar
         recyclerView = binding.cockTailsRecyclerview
-        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = cockTailAdapter
 
         /**
@@ -75,19 +76,19 @@ class CockTailsFragment : Fragment() {
         viewModel.cockTailStatus.observe(viewLifecycleOwner) {
             when (it.status) {
                 Status.SUCCESS -> {
-                    shimmerView.stopShimmer()
-                    shimmerView.visibility = View.GONE
+//                    shimmerView.stopShimmer()
+//                    shimmerView.visibility = View.GONE
                     it.let {
                         cockTailAdapter.submitList(it.data)
                     }
                 }
                 Status.LOADING -> {
-                    shimmerView.startShimmer()
-                    shimmerView.visibility = View.VISIBLE
+//                    shimmerView.startShimmer()
+//                    shimmerView.visibility = View.VISIBLE
                 }
                 Status.ERROR -> {
-                    shimmerView.stopShimmer()
-                    shimmerView.visibility = View.GONE
+//                    shimmerView.stopShimmer()
+//                    shimmerView.visibility = View.GONE
                     Toast.makeText(context, "${it.message}", Toast.LENGTH_LONG).show()
                 }
             }
