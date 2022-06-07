@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="smokewhite">#FAFBF8</color>
+    <color name="purple_card">#D4CEF0</color>
+    <color name="green_card">#CFF3EB</color>
+
+</resources>
