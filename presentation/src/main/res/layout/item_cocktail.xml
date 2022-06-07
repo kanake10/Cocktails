@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_margin="10dp"
     app:cardCornerRadius="15dp"
-    android:layout_height="wrap_content">
+    android:layout_height="300dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -23,6 +23,7 @@
                 android:id="@+id/cockTailImage"
                 android:layout_width="0dp"
                 android:layout_height="160dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cockTailName" />
