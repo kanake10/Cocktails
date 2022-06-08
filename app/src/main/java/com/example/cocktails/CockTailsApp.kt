@@ -1,7 +1,7 @@
 package com.example.cocktails
 
 import android.app.Application
-import com.example.cache.db.localDataModule
+import com.example.cache.di.localDataModule
 import com.example.domain.di.domainModule
 import com.example.presentation.di.presentationModule
 import com.example.remote.di.remoteDataModule

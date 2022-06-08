@@ -1,6 +1,7 @@
-package com.example.cache.db
+package com.example.cache.di
 
 import androidx.room.Room
+import com.example.cache.db.CockTailsDatabase
 import com.example.core.Constants.COCKTAILS_DB
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
