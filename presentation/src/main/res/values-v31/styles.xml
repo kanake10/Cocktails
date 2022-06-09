@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/purple_700</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/cocktails</item>
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <item name="postSplashScreenTheme">@style/Theme.CockTails</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/cocktails</item>
+        <!--Add branding image here when you have one, works only from android 12-->
+        <!--<item name="android:windowSplashScreenBrandingImage">@drawable/cocktails</item>-->
+    </style>
+</resources>
